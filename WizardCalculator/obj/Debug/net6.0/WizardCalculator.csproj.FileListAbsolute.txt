@@ -1,0 +1,14 @@
+C:\Users\Mikael\Documents\Coding C#\WizardCalculator\WizardCalculator\bin\Debug\net6.0\WizardCalculator.exe
+C:\Users\Mikael\Documents\Coding C#\WizardCalculator\WizardCalculator\bin\Debug\net6.0\WizardCalculator.deps.json
+C:\Users\Mikael\Documents\Coding C#\WizardCalculator\WizardCalculator\bin\Debug\net6.0\WizardCalculator.runtimeconfig.json
+C:\Users\Mikael\Documents\Coding C#\WizardCalculator\WizardCalculator\bin\Debug\net6.0\WizardCalculator.dll
+C:\Users\Mikael\Documents\Coding C#\WizardCalculator\WizardCalculator\bin\Debug\net6.0\WizardCalculator.pdb
+C:\Users\Mikael\Documents\Coding C#\WizardCalculator\WizardCalculator\obj\Debug\net6.0\WizardCalculator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mikael\Documents\Coding C#\WizardCalculator\WizardCalculator\obj\Debug\net6.0\WizardCalculator.AssemblyInfoInputs.cache
+C:\Users\Mikael\Documents\Coding C#\WizardCalculator\WizardCalculator\obj\Debug\net6.0\WizardCalculator.AssemblyInfo.cs
+C:\Users\Mikael\Documents\Coding C#\WizardCalculator\WizardCalculator\obj\Debug\net6.0\WizardCalculator.csproj.CoreCompileInputs.cache
+C:\Users\Mikael\Documents\Coding C#\WizardCalculator\WizardCalculator\obj\Debug\net6.0\WizardCalculator.dll
+C:\Users\Mikael\Documents\Coding C#\WizardCalculator\WizardCalculator\obj\Debug\net6.0\refint\WizardCalculator.dll
+C:\Users\Mikael\Documents\Coding C#\WizardCalculator\WizardCalculator\obj\Debug\net6.0\WizardCalculator.pdb
+C:\Users\Mikael\Documents\Coding C#\WizardCalculator\WizardCalculator\obj\Debug\net6.0\WizardCalculator.genruntimeconfig.cache
+C:\Users\Mikael\Documents\Coding C#\WizardCalculator\WizardCalculator\obj\Debug\net6.0\ref\WizardCalculator.dll
