@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WizardCalculator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e76a99f2fcf09985685baa1af1d213209118aaa3")]
 [assembly: System.Reflection.AssemblyProductAttribute("WizardCalculator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WizardCalculator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
