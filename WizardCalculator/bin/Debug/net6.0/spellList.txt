@@ -1,0 +1,27 @@
+Euphoric Cloud,2,con
+Hideous Laugthter,2,enc
+Lipstitch,2,nec
+Spectral Hand,2,nec
+Ashen Path,2,tra
+Aqueous Orb,3,con
+Sleet Storm,3,con
+Tounges,3,div
+Invisiblity Sphere,3,ill
+Irriseni Mirror Sight,3,div
+Confusion,4,enc
+Arcane Eye,4,div
+Wall of Brine,4,con
+Phantom Chariot,4,con
+Shadowform,4,ill
+Obsidian Flow,4,tra
+Permanacy,5,uni
+Transmute Rock to Mud,5,tra
+Telekinesis,5,tra
+Roaming Pit,5,con
+Wall of Stone,5,con
+Dispel Magic Greater,6,abj
+True Seeing,6,div
+Jatabes Ire,6,tra
+Getaway,6,con
+Sirocco,6,tra
+Psychic Asylum,6,ill

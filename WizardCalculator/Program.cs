@@ -7,31 +7,6 @@ namespace WizardCalculator
 {
     internal class Program
     {
-
-        
-        int firstLevel = 0;
-        int secondLevel = 0;
-        int thirdLevel = 0;
-        int fourthLevel = 0;
-        int fifthLevel = 0;
-        int sixthLevel = 0;
-        int seventhLevel = 0;
-        int eighthLevel = 0;
-        int ninthLevel = 0;
-        int cantrips = 0;
-
-
-
-
-
-
-
-
-
-
-
-        
-
         static void Main(string[] args)
         {
             Random random = new Random();
@@ -102,7 +77,9 @@ namespace WizardCalculator
                 Console.WriteLine("4.) Check Spell Write Time and cost (dechiper + copy)");
                 Console.WriteLine("5.) Remove Spell from list ");
                 Console.WriteLine("6.) Quick Add and Calc");
-                Console.WriteLine("7.) Exit");
+                Console.WriteLine("7.) Save Spell List");
+                Console.WriteLine("8.) Load Spell List");
+                Console.WriteLine("9.) Exit");
                 Console.WriteLine("---------------------------------------");
                 Console.WriteLine("Enter a number: ");
                 string input = Console.ReadLine();
@@ -139,6 +116,15 @@ namespace WizardCalculator
 
                                 foreach (Spell spell in spellList)
                                 {
+
+
+                                   
+
+
+
+
+
+
                                     int spellDechipherDC = 20 + spell.SpellInfo.spellLevel + addedDC;
                                     int spellCopyDC = 15 + spell.SpellInfo.spellLevel + addedDC;
                                     int WizardTake10 = 10 + spellcraftMod;
@@ -185,21 +171,19 @@ namespace WizardCalculator
                                        Console.WriteLine($"SUCCESS! You Dechiphered {spell.SpellInfo.spellName} with a roll of {dRoll} to a total of {dechipherRoll} (DC was {spellDechipherDC} ) ");
                                     }
 
-                                    if (wizChoice == spell.SpellSchool.ToString())
+                                   string spellSchool = spell.SpellSchool.ToString();
+
+                                    if (wizSchool == spellSchool)
                                     {
                                         spellStudyDC -= 2;
                                         Console.WriteLine($"You get a +2 to study {spell.SpellInfo.spellName} because it is in your school");
                                     }
-                                    else { 
-                                    
-                                    
-                                    }
-
-
+                                   
+                               
 
                                     if (studyRoll < spellStudyDC)
                                     {
-                                        Console.WriteLine($"FAIL! You failed to study {spell.SpellInfo.spellName} with a roll of {sRoll} to a toal of {studyRoll} DC was { spellDechipherDC } ");
+                                        Console.WriteLine($"FAIL! You failed to study {spell.SpellInfo.spellName} with a roll of {sRoll} to a toal of {studyRoll} DC was { spellStudyDC } ");
 
 
                                     }
@@ -313,6 +297,12 @@ namespace WizardCalculator
                         Console.WriteLine($"It will take {totalTime} hours to study and copy all spells");
                         Console.WriteLine($"It will cost {totalCost} gold to study and copy all spells");
                         Console.WriteLine($"If you didn't Study from another wizard it would cost {copyCost} gold to copy all spells");
+                        
+                        Console.WriteLine("How many hours a day can you work without penalty? (8 is normal)");
+                        double hoursWorked = Convert.ToDouble(Console.ReadLine());
+                        double daysWorked = totalTime / hoursWorked;
+                        Console.WriteLine($"It will take {daysWorked} days to study and copy all spells");
+                        
                         break;
 
 
@@ -324,12 +314,55 @@ namespace WizardCalculator
                         case "6":
                         quickSpell();
                         break;
-                        case "7":
+                    case "7":
+                        Console.WriteLine("Are you sure you want to save? Y/N");
+                        string save = Console.ReadLine();
+                        switch (save)
+                        {
+                            case "y":
+                                SaveSpellList(spellList);
+                                Console.WriteLine("Spell list saved successfully.");
+                                break;
+                            case "n":
+                                Console.WriteLine("Spell list not saved.");
+                                break;
+                            default:
+                                Console.WriteLine("Invalid input");
+                                break;
+                        }
+                        
+                        break;
+                    case "8":
+                        Console.WriteLine("Are you sure you want to load? Y/N");
+                        string load = Console.ReadLine();
+                        switch (load)
+                        {
+                            case "y":
+                                spellList = LoadSpellList();
+                                Console.WriteLine("Spell list loaded successfully.");
+                                break;
+                            case "n":
+                                Console.WriteLine("Spell list not loaded.");
+                                break;
+                            default:
+                                Console.WriteLine("Invalid input");
+                                break;
+                        }
+                        
+                        break;
+
+
+
+
+
+
+                    case "9":
                         
                         Environment.Exit(0);
 
                         break;
-
+                        
+                        
 
 
 
@@ -346,6 +379,8 @@ namespace WizardCalculator
                 Console.WriteLine("Enter Spell Level: ");
                 spellInfo.spellLevel = Convert.ToInt32(Console.ReadLine());
                 SpellSchool spellSchool = new SpellSchool();
+                Console.WriteLine("Enter as 3 letter abbreviation (evo, nec, tra, enc, div, abj, con, ill, uni):");
+                Console.WriteLine("");
                 Console.WriteLine("Enter Spell School: ");
                 spellSchool = (SpellSchool)Enum.Parse(typeof(SpellSchool), Console.ReadLine());
 
@@ -357,13 +392,48 @@ namespace WizardCalculator
 
             }
 
-
-           
-
-
-
-
+            static void SaveSpellList(List<Spell> spells)
+            {
+                using (StreamWriter writer = new StreamWriter("spellList.txt"))
+                {
+                    foreach (Spell spell in spells)
+                    {
+                        writer.WriteLine($"{spell.SpellInfo.spellName},{spell.SpellInfo.spellLevel},{spell.SpellSchool}");
+                    }
+                }
             }
+
+            static List<Spell> LoadSpellList()
+            {
+                List<Spell> loadedSpells = new List<Spell>();
+                if (File.Exists("spellList.txt"))
+                {
+                    using (StreamReader reader = new StreamReader("spellList.txt"))
+                    {
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            string[] parts = line.Split(',');
+                            if (parts.Length == 3)
+                            {
+                                SpellInfo spellInfo = new SpellInfo
+                                {
+                                    spellName = parts[0],
+                                    spellLevel = int.Parse(parts[1])
+                                };
+                                SpellSchool spellSchool = (SpellSchool)Enum.Parse(typeof(SpellSchool), parts[2]);
+                                loadedSpells.Add(new Spell(spellInfo, spellSchool));
+                            }
+                        }
+                    }
+                }
+                return loadedSpells;
+            }
+        
+
+
+
+    }
         static void quickSpell()
         {
 
