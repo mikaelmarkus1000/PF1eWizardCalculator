@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Drawing;
+using Console = Colorful.Console;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Reflection;
+using System.Runtime.Serialization;
 
 namespace WizardCalculator
 {
@@ -25,7 +28,7 @@ namespace WizardCalculator
             Console.WriteLine("6.) Abjuration");
             Console.WriteLine("7.) Transmutation");
             Console.WriteLine("8.) Illusion");
-            Console.WriteLine("9.) Universalist");
+            Console.WriteLine("9.) Universalist/Other");
             ;
             Console.WriteLine("Enter a number: ");
             string wizChoice = Console.ReadLine();
@@ -57,7 +60,7 @@ namespace WizardCalculator
                     wizSchool = "ill";
                     break;
                 case "9":
-                    wizSchool = "Universalist";
+                    wizSchool = "Other";
                     break;
 
 
@@ -162,13 +165,13 @@ namespace WizardCalculator
                                     
                                     if (dechipherRoll < spellDechipherDC)
                                     {
-                                        Console.WriteLine($" FAIL! You failed to Dechipher {spell.SpellInfo.spellName} with a roll of {dRoll} to a total of {dechipherRoll} (DC was {spellDechipherDC} ) ");
+                                        Console.WriteLine($"\n FAIL! You failed to Dechipher {spell.SpellInfo.spellName} with a roll of {dRoll} to a total of {dechipherRoll} (DC was {spellDechipherDC} ) ", Color.Red);
 
 
                                     }
                                     else
                                     {
-                                       Console.WriteLine($"SUCCESS! You Dechiphered {spell.SpellInfo.spellName} with a roll of {dRoll} to a total of {dechipherRoll} (DC was {spellDechipherDC} ) ");
+                                       Console.WriteLine($"\nSUCCESS! You Dechiphered {spell.SpellInfo.spellName} with a roll of {dRoll} to a total of {dechipherRoll} (DC was {spellDechipherDC} ) ", Color.Green);
                                     }
 
                                    string spellSchool = spell.SpellSchool.ToString();
@@ -176,35 +179,37 @@ namespace WizardCalculator
                                     if (wizSchool == spellSchool)
                                     {
                                         spellStudyDC -= 2;
-                                        Console.WriteLine($"You get a +2 to study {spell.SpellInfo.spellName} because it is in your school");
+                                        Console.WriteLine($"\nYou get a +2 to study {spell.SpellInfo.spellName} because it is in your school", Color.Blue);
                                     }
                                    
                                
 
                                     if (studyRoll < spellStudyDC)
                                     {
-                                        Console.WriteLine($"FAIL! You failed to study {spell.SpellInfo.spellName} with a roll of {sRoll} to a toal of {studyRoll} DC was { spellStudyDC } ");
+                                        Console.WriteLine($"\nFAIL! You failed to study {spell.SpellInfo.spellName} with a roll of {sRoll} to a toal of {studyRoll} DC was { spellStudyDC } ", Color.Red);
 
 
                                     }
                                     else
                                     {
-                                        Console.WriteLine($"SUCCESS! studied {spell.SpellInfo.spellName} with a roll of {sRoll} to a toal of {studyRoll} DC was { spellDechipherDC } ");
+                                        Console.WriteLine($"\nSUCCESS! studied {spell.SpellInfo.spellName} with a roll of {sRoll} to a toal of {studyRoll} DC was { spellDechipherDC } ", Color.Green );
                                     }
 
                                     if (copyRoll < spellCopyDC)
                                     {
-                                        Console.WriteLine($" FAIL! You failed to Copy {spell.SpellInfo.spellName} with a roll of {cRoll} to a total of {copyRoll} (DC was {spellCopyDC} ) ");
+                                        Console.WriteLine($"\nFAIL! You failed to Copy {spell.SpellInfo.spellName} with a roll of {cRoll} to a total of {copyRoll} (DC was {spellCopyDC} )", Color.Red);
 
                                     }
                                     else
                                     {
-                                        Console.WriteLine($"SUCCESS! You Copied {spell.SpellInfo.spellName} with a roll of {cRoll} to a total of {copyRoll} (DC was {spellCopyDC} ) ");
+                                        Console.WriteLine($"SUCCESS! You Copied {spell.SpellInfo.spellName} with a roll of {cRoll} to a total of {copyRoll} (DC was {spellCopyDC} )", Color.Green );
                                     }
 
-
+                                    
                                 }
+                                
 
+                               
                                 break;
                             default:
                                 Console.WriteLine("Invalid input");

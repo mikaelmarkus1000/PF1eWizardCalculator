@@ -27,3 +27,6 @@ C:\Users\Mikael\Documents\Coding\C#\PF1eWizardCalculator\WizardCalculator\bin\De
 C:\Users\Mikael\Documents\Coding\C#\PF1eWizardCalculator\WizardCalculator\bin\Debug\net6.0\WizardCalculator.pdb
 C:\Users\Mikael\Documents\Coding\C#\PF1eWizardCalculator\WizardCalculator\obj\Debug\net6.0\WizardCalculator.genruntimeconfig.cache
 C:\Users\Mikael\Documents\Coding\C#\PF1eWizardCalculator\WizardCalculator\obj\Debug\net6.0\ref\WizardCalculator.dll
+C:\Users\Mikael\Documents\Coding\C#\PF1eWizardCalculator\WizardCalculator\bin\Debug\net6.0\Colorful.Console.dll
+C:\Users\Mikael\Documents\Coding\C#\PF1eWizardCalculator\WizardCalculator\obj\Debug\net6.0\WizardCalculator.csproj.AssemblyReference.cache
+C:\Users\Mikael\Documents\Coding\C#\PF1eWizardCalculator\WizardCalculator\obj\Debug\net6.0\WizardCalculator.csproj.CopyComplete
