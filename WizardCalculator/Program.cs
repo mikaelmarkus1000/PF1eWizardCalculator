@@ -192,7 +192,7 @@ namespace WizardCalculator
                                     }
                                     else
                                     {
-                                        Console.WriteLine($"\nSUCCESS! studied {spell.SpellInfo.spellName} with a roll of {sRoll} to a toal of {studyRoll} DC was { spellDechipherDC } ", Color.Green );
+                                        Console.WriteLine($"\nSUCCESS! studied {spell.SpellInfo.spellName} with a roll of {sRoll} to a total of {studyRoll} DC was { spellDechipherDC } ", Color.Green );
                                     }
 
                                     if (copyRoll < spellCopyDC)
